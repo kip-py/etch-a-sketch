@@ -9,9 +9,14 @@ for (let j = 0; j < 16; j++) {
 
     for (let i = 0; i < 16; i++) {
         let square = document.createElement("div");
-        square.setAttribute("style", "border-style: solid; border-color: black; border-width: 1px; height: 30px; width: 30px");
+        square.setAttribute("style", "border-style: solid; background-color: black; height: 30px; width: 30px; opacity: 0.0");
         square.classList.add("square");
         square.setAttribute("id","square"+(i+j*6).toString());
+        square.addEventListener("mouseenter", (e) => {
+            let opacity = square.style.opacity;
+            square.style.opacity = Number(opacity) + 0.1;
+            /*square.style.backgroundColor = "black";*/
+        })
         row.appendChild(square);
     }
     container.appendChild(row);
